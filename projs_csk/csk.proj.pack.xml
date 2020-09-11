@@ -1,0 +1,39 @@
+<!--
+  csk.proj.pack.xml
+-->
+<Project Label="csk.proj.pack.xml">
+
+  <!--打包属性-->
+  <PropertyGroup Label="Package informations">
+    <PackageId>$(AssemblyName)</PackageId>
+    <Version>$(VERSION_PUBLISH)</Version>
+    <Authors>ShenYongchen</Authors>
+    <Company>MASC</Company>
+    <Product>$(AssemblyName)</Product>
+    <Copyright>Copyright © 2010 - . ShenYongchen(shenyczz@163.com)</Copyright>
+    <Description>CSharpKit, basic algorithms, components and definitions..</Description>
+    <PackageIcon />
+    <PackageIconUrl />
+    <PackageProjectUrl/>
+    <PackageLicenseFile />
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>CSK, $(AssemblyName)</PackageTags>
+    <PackageReleaseNotes>Full Version: $(Version)</PackageReleaseNotes>
+    <RepositoryType />
+    <RepositoryUrl />
+    <NeutralLanguage></NeutralLanguage>
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <FileVersion>$(Version)</FileVersion>
+    <PackageVersion>$(Version)</PackageVersion>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+
+    <PackageOutputPath>$(SolutionDir)$(PackageFolder)$(ToolkitName)</PackageOutputPath>
+    <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
+
+    <!--<NeutralLanguage>en-US</NeutralLanguage>-->
+    <!--<NeutralLanguage>zh-Hans</NeutralLanguage>-->
+  </PropertyGroup>
+
+
+</Project>
+

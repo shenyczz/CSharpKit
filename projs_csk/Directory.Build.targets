@@ -1,0 +1,9 @@
+<!--
+  csk.Directory.Build.targets
+-->
+<Project Label="csk.Directory.Build.targets">
+
+  <PropertyGroup>
+  </PropertyGroup>
+
+</Project>

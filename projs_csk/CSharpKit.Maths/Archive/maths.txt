@@ -1,0 +1,39 @@
+
+BLAS：Basic Linear Algebra Subprograms，基础线性代数子程序，本身BLAS是用Fortran写的
+CBLAS：BLAS的C接口库（CBLAS安装需要先装BLAS）
+CBLAS/BLAS分为3个level
+level1是用于向量的计算
+level2是用于向量和矩阵之间的计算
+level3是矩阵之间的计算
+
+OpenBLAS：目前性能最好的开源实现
+
+
+
+矩阵运算库 blas, cblas, openblas, atlas, lapack, mkl
+
+BLAS：标准实现（Fortran）
+CBLAS：C的BLAS标准实现
+Atlas：一种优化实现
+GotoBLAS：多线程性能良好的优化实现（已停止更新）
+OpenBLAS：目前性能最好的开源实现，基于GotoBLAS
+MKL：Intel实现，在Intel处理器上性能最佳；Intel® Math Kernel Library (Intel® MKL) 
+
+
+
+
+More about LAPACK subroutines
+LAPACK subroutine e.g. dgesv_
+
+Prefix -- "dge"
+From the LAPACK naming scheme -- http://www.netlib.org/lapack/lug/node24.html, it is plain to see that:
+d in "dgesv" means: double precsion data
+ge in "dgesv" means: general as in unsymmetric matrix
+
+Suffix -- "sv"
+This refers to the type of driver routine (solver in lay speak) to be used to solve the linear system.
+There are two kinds on drivers: 
+"simple" drivers (suffixed with "sv")
+"expert" drivers (suffixed with "svx")
+Refer to http://www.netlib.org/lapack/lug/node26.html .
+

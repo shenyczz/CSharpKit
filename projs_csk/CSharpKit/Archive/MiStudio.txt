@@ -1,0 +1,29 @@
+﻿
+Microacme Software Company, Inc. - MASC 微致软件
+Ltd. (股份)公司 
+Inc. (责任有限)公司
+
+Meteorological Information Studio - MiStudio
+气象信息工作室
+
+Meteorological Information Development and Application System - Midas
+气象信息开发应用系统
+
+Meteorological information visualization application processing system - Mivaps
+气象信息可视化应用处理系统
+
+Meteorological Infomation Warning Application Prosess System = Miwaps
+气象信息预警应用处理系统
+
+Meteorological Infomation Data Analysis Prosess System = Midaps
+气象信息数据分析处理系统
+
+MDK = Meteorological Information Development Toolkit
+
+MiStudio
+
+CSharpKit.Win32Api
+CSharpKit
+CSharpKit.Core
+CSharpKit.Maths
+

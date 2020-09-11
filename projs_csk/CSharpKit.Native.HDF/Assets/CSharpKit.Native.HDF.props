@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <!--
+    The macro definition about the third party library.
+    for example: c/c++ dll.
+    -->
+    <HDF5LibraryFolder>thirdParty</HDF5LibraryFolder>
+    <HDF5LibraryName>HDF5</HDF5LibraryName>
+    <HDF5LibraryVersion>1.10.5.2</HDF5LibraryVersion>
+    <HDF5LibraryPath_x86>$(HDF5LibraryName)\$(HDF5LibraryVersion)\x86\</HDF5LibraryPath_x86>
+    <HDF5LibraryPath_x64>$(HDF5LibraryName)\$(HDF5LibraryVersion)\x64\</HDF5LibraryPath_x64>
+  </PropertyGroup>
+
+  <!--LIBHDF x86 -->
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)$(HDF5LibraryPath_x86)hdf5.dll">
+      <Link>$(HDF5LibraryFolder)\$(HDF5LibraryPath_x86)hdf5.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)$(HDF5LibraryPath_x86)hdf5_hl.dll">
+      <Link>$(HDF5LibraryFolder)\$(HDF5LibraryPath_x86)hdf5_hl.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)$(HDF5LibraryPath_x86)szip.dll">
+      <Link>$(HDF5LibraryFolder)\$(HDF5LibraryPath_x86)szip.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)$(HDF5LibraryPath_x86)zlib.dll">
+      <Link>$(HDF5LibraryFolder)\$(HDF5LibraryPath_x86)zlib.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <!--LIBHDF x64 -->
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)$(HDF5LibraryPath_x64)hdf5.dll">
+      <Link>$(HDF5LibraryFolder)\$(HDF5LibraryPath_x64)hdf5.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)$(HDF5LibraryPath_x64)hdf5_hl.dll">
+      <Link>$(HDF5LibraryFolder)\$(HDF5LibraryPath_x64)hdf5_hl.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)$(HDF5LibraryPath_x64)szip.dll">
+      <Link>$(HDF5LibraryFolder)\$(HDF5LibraryPath_x64)szip.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)$(HDF5LibraryPath_x64)zlib.dll">
+      <Link>$(HDF5LibraryFolder)\$(HDF5LibraryPath_x64)zlib.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

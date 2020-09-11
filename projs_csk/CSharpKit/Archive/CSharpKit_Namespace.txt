@@ -1,0 +1,35 @@
+﻿//=========================================================
+// 命名空间
+//=========================================================
+
+CSharpKit
+  |--ComponentModel(组件模型)
+  |--Coordinates(坐标)
+  |--Geometrics(几何图形)
+  |
+  |--Mathematical(数学)
+  |
+  |--*Physical(物理学)
+  |--*Chemical(化学)
+  |--*Biological(生物学)
+  |--*Hydrological(水文学)
+  |--*Geological(地质学)
+  |
+  |--Geomatics(测绘学)
+  |--Meteorological(气象学)
+  |    |--Agrometeorological(农业气象学)
+  |    |--Weather(天气)
+  |
+  |--Data(数据)
+  |--Vision(视觉)
+  |--Utility(工具)
+  |
+  |
+  |
+  |
+  |
+  |
+  |
+  |
+  |
+  |

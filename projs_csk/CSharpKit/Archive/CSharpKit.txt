@@ -1,0 +1,54 @@
+﻿
+#region Constructors
+#endregion
+
+#region Constants
+#endregion
+
+#region Fields
+#endregion
+
+#region Fields - Static
+#endregion
+
+#region Properties
+#endregion
+
+#region Properties - Custom
+#endregion
+
+#region Properties - Dependency
+#endregion
+
+#region Events
+#endregion
+
+#region Public Functions
+#endregion
+
+#region Public Functions - Override
+#endregion
+
+#region Public Functions - Static
+#endregion
+
+#region Protected Functions
+#endregion
+
+#region Protected Functions - Override
+#endregion
+
+#region Internal Functions
+#endregion
+
+#region Private Functions
+#endregion
+
+#region Static Functions
+#endregion
+
+#region DataType Transform
+#endregion
+
+#region Operator Override
+#endregion

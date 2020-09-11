@@ -1,0 +1,38 @@
+﻿[2020-03-06]
+着手解决静止卫星 NOM 标称数据问题
+
+[2020-06-01]
+GammaCorrect（数据伽马校正）从MTK移到CSK，
+KImageHelper可以使用 GammaCorrect 把数据转换成灰度图
+
+[2020-06-02]
+数据实例 DataInstance 新添加 ProductImageNew 属性，数据类型 Dictionary<int, Image>
+原ProductImage属性类型不变，名称改为 ProductImageOld
+
+[2020-06-04]
+添加 ArrayConverter 密封类
+
+[2020-06-05]
+添加 Data2ImageConverter 密封类
+
+[2020-06-10]
+添加 ArrayExtentions
+
+[2020-06-23]
+使用 net40、net45、netcoreapp3.1
+
+[2020-06-23]
+完善 GeoApi 投影
+
+[2020-07-06]
+添加 CSharpKit.IO
+添加 CSharpKit.IO.Compression
+准备实现 bunzip2 功能
+
+[2020-07-07]
+将 Axin 从 csk 迁移到 mtk
+
+[2020-07-07]
+添加 CSharpKit.Windows.WPF.Charts
+添加 CSharpKit.Windows.WPF.Media3D
+

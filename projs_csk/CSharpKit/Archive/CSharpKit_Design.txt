@@ -1,0 +1,49 @@
+﻿/******************************************************************************
+ * 
+ * Announce: Everything is C Sharp Kit,
+ *           Used to achieve data visualization, Similar to GIS.
+ *           Copyright (C) ShenYongchen
+ *           All rights reserved.
+ *
+ *   Author: 申永辰.郑州 (shenyczz@163.com)
+ *  WebSite: http://blog.csdn.net/shenyc
+ *           http://github.com/shenyczz/CSharpKit
+ *
+******************************************************************************/
+
+首先设置 KitHelper.AppPath;
+
+解决方案共有24个项目
+
+【变量定义规则】
+局部变量: fieldName
+私有字段: _FieldName;
+属性字段: FieldName
+静态字段: FieldName;
+
+属性: PropertyName
+
+
+
+
+【数据可视化框架设计】
+
+Data--------[DB,File,Misce] : IProvider
+  A
+  |
+  |
+Vision--------[Provider,Renderer] : IVision
+  A
+  |
+  |
+Presentation--------[RendeEngine] : IRendeEngine
+  A
+  |
+  |
+Map--------[Container,LayerManager,MouseListener] : IMap
+  A
+  |
+  |
+Graphics
+
+

@@ -1,0 +1,232 @@
+一、空间坐标系的概念
+空间中的某一个位置，通常是由一个坐标来表示，坐标和位置要想正确对应起来，则必须了解该坐标的坐标系
+是如何定义的，坐标系在有些软件中也称为空间参考（SpatialReference）。
+地图的每个坐标都必须知道其坐标系的定义方法，一幅地图中各图层或者各要素的数据，必须是在同一坐标系
+或者转化为同一个坐标系下，才能直接进行运算，比如计算面积，距离，或者判断空间关系等。
+空间坐标系的相关概念有：大地水准面、参考椭球体、基准面、地理坐标系、投影坐标系等。
+
+【大地水准面】（Geoid）：
+静止的平均海水面及其向陆地延伸后组成的封闭曲面，称为大地水准面，是一个不规则形状。
+大地水准面是对地球形状的最底层的描述，在大地水准面上，每一处的重力方向均与大地水准面垂直，大地水准面没有准确的数学公式。
+
+【参考椭球体】（Ellipsoid）：
+将大地水准面用一个规则的椭球面进行拟合，该椭球体用长半轴、短半轴和扁率三个参数中的两个来表示。
+由于测量方法的不同，会有不同的参考椭球体的参数，
+北京54坐标系使用的是Krassovsky 1940椭球体，
+西安80坐标系使用的是IAG 75椭球体，
+GPS坐标使用的是WGS 1984椭球体。
+
+【基准面】（Datum）：
+在参考椭球体的基础上，定义椭球体相对于地心的位置。基准面可分为地心基准面和区域基准面。
+地心基准面：椭球体的中心位于地心（地球的质心），最广泛的基准是 WGS 1984，被用作在世界范围内进行定位测量。
+局域基准面：是在特定区域内与地球表面极为吻合，椭球体表面上的某一点与地球表面上的特定点相匹配，
+该点称作基准面的原点，54坐标系基准面原点在前苏联的普尔科沃，80坐标系基准面原点在西安。
+
+【地理坐标系】（GeographicCoordinateSystem）（GCS）：
+是一种球面坐标系，在基准面（Datum）的基础上，加上本初子午线（原点的位置）、坐标轴方向（x方向向东为正，y方向向北为正）、
+坐标单位（角度还是弧度）的定义。地理坐标系下的坐标就是我们常见的经纬度坐标。
+
+【投影坐标系】（ProjectedCoordinateSystem）（PCS）：
+是基于平面的坐标系（二维平面坐标），在地理坐标系的基础上，加上投影方法、参数、坐标轴方向和坐标单位的定义。
+
+Geoid->Ellipsoid->Datum->GCS->PCS
+
+
+二、创建坐标系
+2.1 手工代码创建
+{
+	// 创建坐标系工厂
+	var cFac = new CoordinateSystemFactory();
+	// 创建参考椭球体
+	var ellipsoid = cFac.CreateFlattenedSphere("Bessel 1840", 6377397.155, 299.15281, LinearUnit.Metre);
+	// 创建基准面
+	var datum = cFac.CreateHorizontalDatum("Bessel 1840", DatumType.HD_Geocentric, ellipsoid, null);
+	// 创建地理坐标系
+	var gcs = cFac.CreateGeographicCoordinateSystem("Bessel 1840", // 自定义名称 
+								AngularUnit.Degrees, 
+								datum, 
+								PrimeMeridian.Greenwich, 
+								new AxisInfo("Lon", AxisOrientations.East), 
+								new AxisInfo("Lat", AxisOrientations.North));
+	// 创造投影坐标系
+	// 投影参数 
+	var parameters = new List<ProjectionParameter>(5); 
+	parameters.Add(new ProjectionParameter("latitude_of_origin", 0)); 
+	parameters.Add(new ProjectionParameter("central_meridian", 110)); 
+	parameters.Add(new ProjectionParameter("scale_factor", 0.997)); 
+	parameters.Add(new ProjectionParameter("false_easting", 3900000)); 
+	parameters.Add(new ProjectionParameter("false_northing", 900000)); 
+	// 投影定义
+	var projection = cFac.CreateProjection("MercatorProjection", "Mercator_1SP", parameters); 
+	// 投影坐标系 
+	var pcs = cFac.CreateProjectedCoordinateSystem(
+							"Makassar / NEIEZ", // 自定义名称 
+							gcs, 
+							projection, 
+							LinearUnit.Metre,
+							new AxisInfo("East", AxisOrientations.East), 
+							new AxisInfo("North", AxisOrientations.North));
+}
+
+2.2 预置的常用坐标系
+{
+	var centricCS = GeocentricCoordinateSystem.WGS84;			// 地心坐标系 
+	var geoCs = GeographicCoordinateSystem.WGS84;				// 地理坐标系 
+	var webMercator = ProjectedCoordinateSystem.WebMercator;	// WebMercator投影坐标系
+	var utm33 = ProjectedCoordinateSystem.WGS84_UTM(33, true);	// UTM投影坐标系
+}
+
+2.3 根据WKT字符串创建
+将描述一个坐标系所需要各种数据，按照GIS标准化组织所规定的格式，用字符串的形式来进行表达，
+该字符串就是表示该坐标系的wkt字符串，比如我国100万地形图所采用的地图投影是双标准纬线等角圆锥投影，其wkt字符串如下： 
+PROJCS["liongg",
+      GEOGCS["GCS_Beijing_1954",
+          DATUM["D_Beijing_1954",SPHEROID["Krasovsky_1940",6378245.0,298.3]],
+          PRIMEM["Greenwich",0.0],
+          UNIT["Degree",0.0174532925199433]],
+      PROJECTION["Lambert_Conformal_Conic"],
+      PARAMETER["False_Easting",20500000.0],
+      PARAMETER["False_Northing",0.0],
+      PARAMETER["Central_Meridian",0.0],
+      PARAMETER["Standard_Parallel_1",25.0],
+      PARAMETER["Standard_Parallel_2",47.0],
+      PARAMETER["Scale_Factor",1.0],
+      PARAMETER["Latitude_Of_Origin",0.0],
+      UNIT["Meter",1.0]] ;
+
+根据该wkt字符串，创建其对应的坐标系的代码如下：
+	var pcs = CoordinateSystemWktReader.Parse(bj1954Lcc) as IProjectedCoordinateSystem; 
+
+2.4 根据SRID文件创建
+为记录和保存各种常用的坐标系，将wkt字符串中的各部分内容进行分解，以然后以表格的形式
+存入到SRID.csv文件中，表格中一行代表一种坐标系的定义，并由GIS标准化组织对每种坐标系
+进行了统一的编号和命名，我们可以根据编号即可创建其相应的坐标系。
+	var cs = SRIDReader.GetCSbyID(4326);
+
+三、投影类型与应用场合
+投影坐标系是在地理坐标系（GCS）的基础上，加上投影方法、参数、坐标轴方向和坐标单位等来进行定义的。
+其中最重要的是投影方法和参数，投影方法是指我们采用哪一种数学公式，将经纬度坐标转换为平面坐标，
+参数是确定投影方法后，需要设置其投影参数，不同的参数设置，可以满足不同地区数据的需要。
+
+Proj.Net中通用的投影参数有5个，各自的含义如下：
+central_meridian：		中央经线（投影中心点经度）
+latitude_of_origin：	投影中心点纬度
+scale_factor：			比例系数
+false_easting：			东伪偏移（原点在新坐标系中的x值）
+false_northing：		北伪偏移（原点在新坐标系中的y值）
+
+另外不同的投影方法，还有自己所特有的投影参数。
+
+Proj.Net目前最新版本支持的投影方法有11种，在项目中由11个类来表示，分别是：
+[01] Mercator
+[02] PseudoMercator
+[03] TransverseMercator
+[04] AlbersProjection
+[05] LambertConformalConic2SP
+[06] ObliqueStereographicProjection
+[07] KrovakProjection
+[08] PolyconicProjection
+[09] CassiniSoldnerProjection
+[10] HotineObliqueMercatorProjection
+[11] ObliqueMercatorProjection
+
+在创建投影坐标系时，需要指定投影方法名称，系统根据投影方法名称来查找对应的投影类，一个投影类
+可能对应多个投影方法名称，下面依次介绍其使用方法和场合。
+
+3.1 Mercator（墨卡托投影）
+墨卡托投影是等角正轴圆柱投影，投影后经纬线为互相正交的平行直线。
+该投影在航海航空应用很广，使用该投影，等角航线在地图上是一条直线。
+该投影方法名称为mercator、mercator_1sp和mercator_2sp均对应该类。
+mercator_1sp为切圆柱投影、mercator_2sp为割圆柱投影。
+投影方法名称mercator_1sp有5个通用参数（SRID.cvs中没有找到mercator和mercator_2sp的投影）
+
+3.2 PseudoMercator（伪墨卡托投影）
+伪墨卡托投影，又称为Web Mercator ，这个坐标系统是 Google Map 最先使用的，或者更确切地说，是Google 最先发明的。
+在投影过程中，将表示地球的参考椭球体近似的作为正球体处理（正球体半径 R = 椭球体半长轴 a），然后使用等角正轴切圆柱投影。
+使用该投影，纬度-85度（近似值）至85度的区域在投影平面上是一个正方形。
+该投影方法名称可以是pseudo-mercator、popular_visualisation pseudo-mercator或者google_mercator。
+
+这个坐标系的ID经历了曲折的过程，好多做Web开发的朋友都感到困惑。简单地顺一下： OpenLayers:900913 由于得不到官方的认证ID，
+Google为Web Mercator 任性地制定了这个ID，google=900913
+EPSG:3785 这是 EPSG 在 2008 年给 Web Mercator 设立的WKID，但是这个坐标系的基准面是正圆球，不是WGS 1984。 存在了一段时间后被弃用。
+EPSG:3857 EPSG为 Web Wercator 最终设立的WKID，也就是现在我们常用的Web 地图的坐标系，并且给定官方命名 “WGS 84 / Pseudo-Mercator“。
+ESRI:102113 Esri内部使用ID，与 EPSG:3785 相应。已被弃用。
+ESRI:102100 Esri内部使用ID，与 EPSG:3857 相应。
+
+3.3 TransverseMercator（横轴墨卡托投影）
+横轴墨卡托投影(Transverse Mercator)墨卡托投影类似，不同之处在于圆柱沿经线而不是沿赤道相切。通过这种方法
+生成的等角投影不会保持真实的方向。该投影是把地球看作半径=R的球，如果把地球看作椭球即为通用横轴墨卡托投影或高斯－克吕格投影。
+该投影等高圈和垂直圈互相正交，经纬线为曲线。墨卡托投影因其经线为平行直线，便于显示时区划分，如时区图、航空图、航海图等。
+
+通用横轴墨卡托投影(Universal Transverse Mercator) (UTM):通用横轴墨卡托坐标系是对横轴墨卡托投影的专门化应用。
+地球被分为 60 个区域，每个区域所跨经度为 6 度。已被许多国家作为地形图的数学基础。一般从南纬度80到北纬度84度的范围内使用该投影， 对于两极地区则采用UPS投影(通用球面极投影)。
+
+高斯-克吕格投影(Gauss-Krüger):此投影与墨卡托投影类似，不同之处在于圆柱沿经线而不是沿赤道相切。
+通过这种方法生成的等角投影不会保持真实的方向。高斯-克吕格(GAUSS-KRUGER)是等角横切椭圆柱投影。
+该投影以中央经线和赤道投影后为坐标轴，中央经线长度比=1。
+该投影将地球划分为60个投影带，每带经差为6度，已被许多国家作为地形图的数学基础。
+一般从南纬度80到北纬度84度的范围内使用该投影。 对于两极地区则采用UPS投影(通用球面极投影)。
+高斯-克吕格投影通常投影带为6度范围或3度，超过了6度后变形会增大。
+一般常用来制作大比例尺的地图投影，如1/50万、1/10万、1/5万、1/1万等。
+投影方法名为transverse_mercator，5个通用参数
+
+3.4 AlbersProjection（阿尔伯斯投影）
+阿尔伯斯等积圆锥投影(Albers equal area conic) 即为双标准纬线投影，也即正轴等面积割圆锥投影。
+该投影经纬网的经线为辐射直线，纬线为同心圆圆弧。
+亚尔伯斯等积圆锥投影的应用在编制一些行政区划图，人口地图,地势图等方面应用较广。
+如中国地势图，即是以Q1=25度，Q2=45度的亚尔伯斯等积圆锥投影。这种圆锥投影使用两条标准纬线，
+相比使用一条标准纬线的投影可在某种程度上减少变形。标准纬线之间的形状和线性比例变形最小。
+投影方法名为albers、 albers_conic_equal_area。
+albers_conic_equal_area的参数为：
+standard_parallel_1、
+standard_parallel_2、
+latitude_of_origin、
+longitude_of_center、
+false_easting、
+false_northing
+
+3.5 LambertConformalConic2SP（兰勃特投影）
+兰伯特等角圆锥投影是最适用于中纬度的一种投影。其类似于亚尔勃斯等积圆锥投影，不同之处在于兰勃特等角圆锥投影描绘形状更准确。
+兰伯特等角圆锥投影也称兰勃特正形圆锥投影，该投影的微分圆投影后仍为圆形。经线为辐射直线，纬线为同心圆圆弧。
+指定两条标准纬度线Q1，Q2，在这两条纬度线上没有长度变形，即M=N=1。此种投影也叫等角割圆锥投影，可用来编制中，小比例尺地图。
+我国的分省图，即为两条标准纬度线为Q1=25度，Q2=45度的兰伯特等角圆锥投影。1962年以后，百万分一地图采用了等角圆锥投影，
+极区附近，采用等角方位投影(极球面投影)。
+投影方法名为lambert_conformal_conic、lambert_conformal_conic_2sp、LambertConformalConic2SP
+SRID.cvs中有Lambert_Conformal_Conic_1SP，具有5个通用参数
+Lambert_Conformal_Conic_2SP的参数为：
+standard_parallel_1（标准纬线1）
+standard_parallel_2（标准纬线2）
+latitude_of_origin（中心纬度）
+central_meridian（中心经度）
+false_easting（东偏移）
+false_northing（北偏移）
+
+3.6 ObliqueStereographicProjection（斜球面投影）
+此投影为等角方位投影，最适合的地区是两极地区，投影中心点在北极或者南极时（latitude_of_origin参数值为90或者-90），
+称为极球面投影(Polar stereographic)。
+通用极球面投影(Universal Polar Stereographic) (UPS)是美国于1948年设计的专用地形图投影，用于南北纬80°以上地区。
+UPS的投影平面割椭球于81度纬线圈（scale_factor参数值为0.994），central_meridian参数为0，
+false_easting和false_northing参数均为2000000
+
+3.7 KrovakProjection（Krovak投影）
+Krovak 投影是一种斜兰勃特等角圆锥投影，专为前捷克斯洛伐克而设计。
+
+3.8 PolyconicProjection（多圆锥投影）
+多圆锥投影(Polyconic)：此投影的名称可理解为“许多圆锥”，也指出了投影方法。
+普通多圆锥投影（ordinary polyconic projection）：普通多圆锥投影的经线为对称于中央经线和赤道的曲线，
+纬线投影为同轴圆圆弧，弧心位于中央直径线上，中央经线是直线，M=1，纬线与中央经线正交，N=1.该投影适
+用于沿中央经线延伸的区域（15度范围内）。常用于编制中、小比例尺的数学基础。
+该投影在美国被广泛应用，是百万分一地图投影的基础。
+
+3.9 CassiniSoldnerProjection（卡西尼-斯洛德投影）
+沿中央子午线及与其平行的所有线方向，该横轴圆柱投影的比例保持不变。此投影既不是等积投影也不是等角投影。
+
+3.10 HotineObliqueMercatorProjection（洪特尼斜轴墨卡托投影）
+此投影是沿斜轴旋转墨卡托投影所得的投影，开发该投影的目的是针对既不朝南北方向也不朝东西方向，
+而是方向倾斜的区域绘制等角地图。
+
+3.11 ObliqueMercatorProjection（斜轴墨卡托投影）
+对于此投影，在轨道地图绘制卫星（如，美国陆地资源卫星）的探测范围内形状几乎保持不变，且几乎不发生比例变形。
+
+
+

@@ -1,0 +1,16 @@
+﻿===========================================================
+                    OpenGIS .NET
+===========================================================
+
+[OGC 06-103r4]OpenGIS Simple feature access - Part 1
+IGeometry
+	|-- IPoint
+	|-- ICurve
+	|-- ISurface
+	|-- IGeometryCollection
+
+
+[OGC 01-009]OpenGIS Coordinate Transformation Services
+ISpatialReferenceInfo
+	|-- ICoordinateSystems
+

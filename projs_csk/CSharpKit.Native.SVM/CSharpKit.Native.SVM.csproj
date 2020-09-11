@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\csk.proj.props" />
+
+  <PropertyGroup>
+    <!-- <TargetFramework>netstandard2.0</TargetFramework> -->
+  </PropertyGroup>
+
+  <Import Project="..\csk.proj.targets" />
+</Project>

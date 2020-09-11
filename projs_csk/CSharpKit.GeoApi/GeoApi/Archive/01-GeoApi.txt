@@ -1,0 +1,10 @@
+
+GeoApi.Coordinates
+GeoApi.CoordinateSystems
+GeoApi.CoordinateSystems.Projections
+GeoApi.CoordinateSystems.Transformations
+GeoApi.Geometries
+GeoApi.IO
+
+
+

@@ -1,0 +1,104 @@
+<!--
+  sln.props
+-->
+<Project Label="sln.props">
+
+  <PropertyGroup>
+
+    <!-- 解决方案 -->
+    <!-- <SolutionDir Condition=" '$(SolutionDir)' == '' ">D:\sfxCode\vcs\CSharpKit\</SolutionDir> -->
+    <SolutionDir Condition=" '$(SolutionDir)' == '' ">$(MSBuildThisFileDirectory)</SolutionDir>
+
+    <!-- 工程 -->
+    <ProjectDir Condition=" '$(ProjectDir)' == '' ">$(MSBuildProjectDir)</ProjectDir>
+    <ProjectName Condition=" '$(ProjectName)' == '' ">$(MSBuildProjectName)</ProjectName>
+
+
+    <!-- 源代码 -->
+    <SourceFolder>Source</SourceFolder>
+    <SourceDir Condition=" '$(SourceDir)' == '' ">$(SolutionDir)$(SourceFolder)\</SourceDir>
+
+
+    <!-- 三方库 -->
+    <ThirdPartyFolder>thirdParty</ThirdPartyFolder>
+    <ThirdPartyDir Condition=" '$(ThirdPartyDir)' == '' ">$(SolutionDir)$(ThirdPartyFolder)\</ThirdPartyDir>
+
+    <!-- 测试数据 -->
+    <TDataFolder>TDatas</TDataFolder>
+    <TDataDir Condition=" '$(TDataDir)' == '' ">$(SolutionDir)$(TDataFolder)\</TDataDir>
+
+  </PropertyGroup>
+
+  <!-- 信息 -->
+  <Target Name="PRE" AfterTargets="PreBuild">
+    <!-- <Message Importance="High" Text="Building $(ProjectDir)$(ProjectName).csproj" /> -->
+    <!-- <Message Importance="Normal" Text="Building $(ProjectDir)$(ProjectName).csproj" /> -->
+    <!-- <Message Importance="Low" Text="Building $(ProjectDir)$(ProjectName).csproj" /> -->
+  </Target>
+
+  
+  <PropertyGroup>
+    <NoWarn>$(NoWarn);0169;1587;1591</NoWarn>
+  </PropertyGroup>
+
+
+  <!--临时输出根路径-->
+  <PropertyGroup Label="obj">
+    <BaseIntermediateOutputPath>$(SolutionDir)bout\$(ProjectName)\obj</BaseIntermediateOutputPath>
+    <UseHostCompilerIfAvailable>false</UseHostCompilerIfAvailable>
+    <!-- <GenerateAssemblyInfo>false</GenerateAssemblyInfo> -->
+  </PropertyGroup>
+
+
+
+  <!-- 宏定义 -->
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net40' ">
+    <DefineConstants>$(DefineConstants);NET40;HAS_SYSTEM_LAZY_T</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net40-client' ">
+    <DefineConstants>$(DefineConstants);NET40C;HAS_SYSTEM_LAZY_T</DefineConstants>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <DefineConstants>$(DefineConstants);NET45;HAS_SYSTEM_LAZY_T</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.1' ">
+    <DefineConstants>$(DefineConstants);NETCORE;NETCORE21</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
+    <DefineConstants>$(DefineConstants);NETCORE;NETCORE31</DefineConstants>
+  </PropertyGroup>
+
+
+  <!-- 条件引用 -->
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net40' OR '$(TargetFramework)' == 'net45' ">
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net40' ">
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <PackageReference Include="System.Memory" Version="4.5.3" />
+    <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp2.1' ">
+    <!-- <PackageReference Include="System.Drawing.Common" Version="4.7.0" /> -->
+    <!-- <PackageReference Include="System.Text.Encoding.CodePages" Version="4.7.0" /> -->
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="4.7.0" />
+  </ItemGroup>
+
+</Project>

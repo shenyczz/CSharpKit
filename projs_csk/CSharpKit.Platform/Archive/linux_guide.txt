@@ -1,0 +1,44 @@
+C#在Linux上的开发指南
+
+指南一：首先正视Linux和win的一些区别，也就是一些常识，win的文件命名不区分大小写，而Linux区分大小写，
+所以创建文件的时候要注意大小写
+
+指南二：系统目录的分隔符的不同，可以调用 Path.DirectorySeparatorChar 做到多平台兼容，
+另个建议做路径操作多用System.IO.Path，而不是自己去拼接
+
+指南三：换行符的不同，win的\r\n，linux的\n，可以调用Environment.NewLine做到兼容，而不是自己傻傻的写换行符，
+也建议看看System.Environment这个类
+
+指南四：当你想要开发一个程序，既能在Linux运行正常，又能跑win，要注意自己调用的dll走的api是不是有
+兼容性(比如有些dll里面直接调用了win32的api，你在linux上调用就会不支持)。
+
+指南五：C#语言本身是免费的，跨平台的，它编译完后是IL也是如此，所以你用VS开发的C#，是可以直接在Linux上
+运行的（实际承载的runtime才是关键），一句hello world可以跑遍大江南北（win,linux,mac）。
+
+指南六：如果想在Linux上开发调试，Xamarin Studio符合你的胃口
+（地址：http://www.monodevelop.com/ Xamarin Studio的前身是monodevelop，而monodevelop的前身是SharpDevelop，可以说源远流长），
+利用GTK#可以在Linux开发桌面程序,现在最新版本，都可以支持最新的C#编译器。
+
+指南七：关于创建项目包，vs自带的模板很多配置（比如web.config）和dll，是偏向win的，即使是空项目，也会在Linux上出现
+错误（跑jexus web服务器），这个时候就要对引用的dll和web.config内的配置做一下清理，去除用不到的东西。
+（这个时候很多基础差的基本已经懵逼，平常在win上开发，完全没有注意过的要点，就暴露了自己的基础）
+
+指南八：建议项目开发的时候使用条件开发，需要调用平台特性的地方，有针对的进行条件编译，这样可以使得项目更加健壮！
+
+指南九：Linux上开发C#并不是很难，其实还是简单的，只要你会玩，会看，会解决报错（看懂和解决几百个Exception，做人要仔细，这样你距离大神就不远了）！
+
+指南十：推荐学习的博客：http://www.cnblogs.com/xiaodiejinghong/，http://www.cnblogs.com/yunei/
+
+指南十一：不要问Linux开发成熟不成熟，jexus的作者在linux上用C#开发都很多年了。不要问jexus性能怎么样，
+你实际弄两台相同配置的电脑，一台跑linux+jexus+mono，另一台跑win+iis+.NET FrameWork，用apache的ab工具压测一下
+即可知道（我怕我说jexus的性能不错，你不信），一切用实际数据说话！
+
+指南十二：jexus是免费的，但是不开源(想要源码可以和作者商业商量获取，有时候就算给你一个人代码，你也看不懂。。。)，
+但是你不用担心什么，有bug和建议统统可以告诉作者，普通web服务器有的功能，它都有。用jeuxs不只是asp.net的web服务器，用来跑php，java也都可以！
+
+
+
+
+
+
+

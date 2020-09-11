@@ -1,0 +1,29 @@
+<!--
+  csk.Directory.Build.props
+-->
+<Project Label="csk.Directory.Build.props">
+  <Import Project="..\sln.props" />
+
+  <!--目标框架-->
+  <PropertyGroup Label="TargetFrameworks">
+    <TargetFrameworks>
+      <!-- net40; -->
+      net45;
+      netcoreapp3.1;
+    </TargetFrameworks>
+  </PropertyGroup>
+ 
+  <PropertyGroup>
+    <BinaryPath Condition=" '$(BinaryPath)' == '' ">bin\</BinaryPath>
+    <ToolkitName Condition=" '$(ToolkitName)' == '' ">csk\</ToolkitName>
+    <PackageFolder Condition=" '$(PackageFolder)' == '' ">packages\</PackageFolder>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <OutputPath>$(SolutionDir)$(BinaryPath)$(ToolkitName)$(Configuration)\</OutputPath>
+    <DocumentationFile>$(OutputPath)$(TargetFramework)\$(ProjectName).xml</DocumentationFile>
+  </PropertyGroup>
+
+  <Import Project="..\sln.targets" />
+</Project>

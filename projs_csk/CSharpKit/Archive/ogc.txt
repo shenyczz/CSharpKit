@@ -1,0 +1,63 @@
+﻿===========================================================
+                    OpenGIS Document
+            OGC Implementation Standards
+===========================================================
+[OGC 01-009]	Coordinate Transformation Services
+[OGC 04-094]	Web Feature Service Implementation Specification(WFS)
+[OGC 05-005]	Web Map Context Documents
+[OGC 05-007r7]	Web Processing Service
+[OGC 05-047r3]	GML in JPEG 2000 for Geographic Imagery(GMLJP2) Encoding Specification
+[OGC 05-077r4]	Symbology Encoding Implementation Specification
+[OGC 05-078r4]	Styled Layer Descriptor profile of the Web Map Service Implementation Specification
+[OGC 06-004r3]	Geospatial Digital Rights Management Reference Model(GeoDRM RM)
+[OGC 06-009r6]	Sensor Observation Service
+[OGC 06-024r4]	OGC Location Services(OpenLS): Tracking Service Interface Standard
+[OGC 06-042]	Web Map Server Implementation Specification(WMS)
+[OGC 06-103r4]	OpenGIS® Implementation Standard for Geographic information - Simple feature access - Part 1: Common architecture
+[OGC 06-104r4]	OpenGIS® Implementation Standard for Geographic information - Simple feature access - Part 2: SQL option
+[OGC 06-121r9]	OGC Web Services Common Standard
+[OGC 06-131r6]	OGC Catalogue Services Standard 2.0 Extension Package for ebRIM Application Profile: Earth Observation Products
+[OGC 06-141r6]	Ordering Services Framework for Earth Observation Products Interface Standard
+[OGC 07-000]	OpenGIS® Sensor Model Language (SensorML) Implementation Specification
+[OGC 07-006r1]	OpenGIS® Catalogue Services Specification
+[OGC 07-036]	OpenGIS® Geography Markup Language (GML) Encoding Standard
+[OGC 07-057r7]	OpenGIS® Web Map Tile Service Implementation Standard
+[OGC 07-068r4]	Web Coverage Service (WCS) — Transaction operation extension
+[OGC 07-074]	OpenGIS® Location Services (OpenLS):Core Services
+				[Part 1-Directory Service, Part 2-Gateway Service, Part 3-Location Utility Service
+				(Geocoder/Reverse Geocoder), Part 4-Presentation Service, Part 5-Route Service]
+[OGC 07-098r1]	Geospatial eXtensible Access Control Markup Language (GeoXACML) Extension A – GML2 Encoding
+[OGC 07-099r1]	Geospatial eXtensible Access Control Markup Language (GeoXACML) Extension B – GML3 Encoding
+[OGC 07-110r4]	CSW-ebRIM Registry Service - Part 1: ebRIM profile of CSW
+[OGC 07-144r4]	CSW-ebRIM Registry Service - Part 2: Basic extension package CAT2 ebRIM part2
+[OGC 07-147r2]	OGC® KML
+[OGC 08-007r1]	OpenGIS® City Geography Markup Language (CityGML) Encoding Standard
+[OGC 08-028r7]	OpenGIS® Location Services (OpenLS): Part 6-Navigation Service
+[OGC 08-059r3]	Web Coverage Service (WCS) — ProcessCoverages Extension
+[OGC 08-062r7]	OpenGIS OGC Reference Model(ORM)
+[OGC 08-068r2]	Web Coverage Processing Service (WCPS) Language Interface Standard
+[OGC 08-094r1]	OGC® SWE Common Data Model Encoding Standard
+[OGC 09-000]	OGC® Sensor Planning Service Implementation Standard
+[OGC 09-001]	OpenGIS® SWE Service Model Implementation Standard
+[OGC 09-025r1]	OpenGIS Web Feature Service 2.0 Interface Standard
+[OGC 09-026r1]	OpenGIS Filter Encoding 2.0 Encoding Standard
+[OGC 09-083r3]	GeoAPI 3.0 Implementation Standard
+[OGC 09-110r3]	OGC® WCS 2.0 Interface Standard - Core
+[OGC 09-127r2]	OGC® PUCK Protocol Standard Version 1.4
+[OGC 09-148r1]	OGC® Web Coverage Service 2.0 Interface Standard - XML/POST Protocol Binding Extension
+[OGC 09-149r1]	OGC® Web Coverage Service 2.0 Interface Standard - XML/SOAP Protocol Binding Extension
+[OGC 10-025r1]	Observations and Measurements - XML Implementation
+[OGC 10-070r2]	OpenGIS® Georeferenced Table Joining Service (TJS) Implementation Standard
+[OGC 10-090r3]	OGC Network Common Data Form (NetCDF) Core Encoding Standard version 1.0
+[OGC 10-126r3]	OGC® WaterML 2.0: Part 1- Timeseries
+[OGC 10-129r1]	OGC® Geography Markup Language (GML) — Extended schemas and encoding rules
+[OGC 10-157r3]	Earth Observation Metadata profile of Observations & Measurements
+[OGC 11-017]	Geospatial eXtensible Access Control Markup Language (GeoXACML) Version 1 Corrigendum
+[OGC 11-030r1]	OGC®: Open GeoSMS Standard - Core
+[OGC 11-038r2]	OGC Network Common Data Form (NetCDF) NetCDF Enhanced Data Model Extension Standard
+[OGC 11-052r4]	OGC GeoSPARQL - A Geographic Query Language for RDF Data
+[OGC 11-165r2]	CF-netCDF3 Data Model Extension standard
+[OGC 12-006]	OGC® Sensor Observation Service Interface Standard
+[OGC 12-019]	OGC City Geography Markup Language (CityGML) En-coding Standard
+[OGC 99-050]	OpenGIS Simple Features Specification For OLE/COM
+[OGC 99-054]	OpenGIS Simple Features Specification For CORBA

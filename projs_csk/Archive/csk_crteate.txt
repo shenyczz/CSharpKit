@@ -1,0 +1,101 @@
+1、创建解决方案
+mkdir CSharpKit
+cd CSharpKit
+dotnet new sln
+
+
+2、创建项目
+dotnet new classlib -o projs_csk\CSharpKit
+dotnet new classlib -o projs_csk\CSharpKit.Core
+
+dotnet new classlib -o projs_csk\CSharpKit.Data
+dotnet new classlib -o projs_csk\CSharpKit.Data.Esri
+
+dotnet new classlib -o projs_csk\CSharpKit.GeoApi
+
+dotnet new classlib -o projs_csk\CSharpKit.IO
+dotnet new classlib -o projs_csk\CSharpKit.IO.Compression
+
+dotnet new classlib -o projs_csk\CSharpKit.Maths
+
+dotnet new classlib -o projs_csk\CSharpKit.Native
+dotnet new classlib -o projs_csk\CSharpKit.Native.BLAS
+dotnet new classlib -o projs_csk\CSharpKit.Native.HDF
+dotnet new classlib -o projs_csk\CSharpKit.Native.LAPACK
+dotnet new classlib -o projs_csk\CSharpKit.Native.NetCDF
+dotnet new classlib -o projs_csk\CSharpKit.Native.SVM
+
+dotnet new classlib -o projs_csk\CSharpKit.Numerics 
+
+
+dotnet new classlib -o projs_csk\CSharpKit.Platform
+dotnet new classlib -o projs_csk\CSharpKit.Platform.Arm (*)
+dotnet new classlib -o projs_csk\CSharpKit.Platform.Linux (*)
+dotnet new classlib -o projs_csk\CSharpKit.Platform.Mipux (*)
+dotnet new classlib -o projs_csk\CSharpKit.Platform.Windows (*)
+
+dotnet new classlib -o projs_csk\CSharpKit.NCS  // np -> ncs (*)
+dotnet new classlib -o projs_csk\CSharpKit.NTS  // jts -> nts (*)
+
+
+
+3、添加项目
+dotnet sln csk.sln add --in-root projs_csk\CSharpKit
+dotnet sln csk.sln add --in-root projs_csk\CSharpKit.Core
+dotnet sln csk.sln add --in-root projs_csk\CSharpKit.Data
+dotnet sln csk.sln add --in-root projs_csk\CSharpKit.Data.Esri
+dotnet sln csk.sln add --in-root projs_csk\CSharpKit.GeoApi
+dotnet sln csk.sln add --in-root projs_csk\CSharpKit.IO
+dotnet sln csk.sln add --in-root projs_csk\CSharpKit.IO.Compression
+dotnet sln csk.sln add --in-root projs_csk\CSharpKit.Maths
+dotnet sln csk.sln add --in-root projs_csk\CSharpKit.Native
+dotnet sln csk.sln add --in-root projs_csk\CSharpKit.Native.BLAS
+dotnet sln csk.sln add --in-root projs_csk\CSharpKit.Native.HDF
+dotnet sln csk.sln add --in-root projs_csk\CSharpKit.Native.LAPACK
+dotnet sln csk.sln add --in-root projs_csk\CSharpKit.Native.NetCDF
+dotnet sln csk.sln add --in-root projs_csk\CSharpKit.Native.SVM
+dotnet sln csk.sln add --in-root projs_csk\CSharpKit.Numerics
+dotnet sln csk.sln add --in-root projs_csk\CSharpKit.Platform
+
+
+4、移除项目
+dotnet sln csk.sln remove projs_csk\CSharpKit.xxx
+
+
+5、编译
+dotnet build csk.sln
+
+dotnet clean csk.sln -c Release
+dotnet build csk.sln -c Release
+
+dotnet pack csk.sln -c Release
+
+
+dotnet build projs_csk/CSharpKit.Native.HDF
+
+
+
+
+6、三方库应用
+
+
+
+7、测试
+dotnet new mstest -o projs_csk\uts.csk
+//dotnet sln csk.sln add --in-root projs_csk\uts.csk
+
+7.2 添加参考
+dotnet add "projs_csk\uts.csk\uts.csk.csproj" reference "projs_csk\CSharpKit"
+
+7.3 运行测试
+dotnet test projs_csk\uts.csk\uts.csk.csproj"
+
+
+8、统一 frame 和 pack
+使用
+csk.proj.props
+Directory.Build.props
+
+
+
+

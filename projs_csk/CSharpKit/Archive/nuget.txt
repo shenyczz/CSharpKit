@@ -1,0 +1,21 @@
+﻿# Find packages containing the keyword "elmah"
+Find-Package elmah
+
+# Install the Elmah package to the project named MyProject.
+Install-Package Elmah -ProjectName MyProject
+
+【卸载包】
+# Uninstalls the Elmah package from the default project
+Uninstall-Package Elmah
+
+# Uninstalls the Elmah package and all its unused dependencies
+Uninstall-Package Elmah -RemoveDependencies 
+
+# Uninstalls the Elmah package even if another package depends on it
+Uninstall-Package Elmah -Force
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\csk.proj.props" />
+
+  <PropertyGroup>
+    <!-- <VERSION_PUBLISH>$(VERSION_DEFAULT).$(VERSION_RELEASE)</VERSION_PUBLISH> -->
+  </PropertyGroup>
+
+  <ImportGroup>
+    <Import Project="..\csk.proj.pack.xml" />
+  </ImportGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\CSharpKit.Core\CSharpKit.Core.csproj" />
+    <ProjectReference Include="..\CSharpKit.Platform\CSharpKit.Platform.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\csk.proj.targets" />
+</Project>

@@ -1,0 +1,20 @@
+<!--
+  csk.proj.props
+-->
+<Project Label="csk.proj.props">
+
+  <PropertyGroup>
+    <VERSION_MAJOR>3</VERSION_MAJOR>
+    <VERSION_MINOR>1</VERSION_MINOR>
+    <VERSION_INTERNAL>1</VERSION_INTERNAL>
+    <!-- <VERSION_RELEASE>100</VERSION_RELEASE> -->
+
+    <VERSION_DEFAULT>$(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_INTERNAL)</VERSION_DEFAULT>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <VERSION_PUBLISH>$(VERSION_DEFAULT)</VERSION_PUBLISH>
+  </PropertyGroup>
+
+</Project>
+

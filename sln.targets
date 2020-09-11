@@ -1,0 +1,13 @@
+<!--
+    sln.targets
+-->
+<Project Label="sln.targets">
+
+  <PropertyGroup>
+  </PropertyGroup>
+
+  <Target Name="EmitCustomMessage" AfterTargets="AfterBuild">
+    <!-- <Message Importance="High" Text="The solution has completed the Build target" /> -->
+  </Target>
+
+</Project>

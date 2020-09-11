@@ -1,0 +1,28 @@
+https://docs.microsoft.com/zh-cn/visualstudio/msbuild/msbuild?view=vs-2019
+
+[MSBuild]
+=============
+
+1、属性
+<PropertyGroup>
+    <BuildDir>Build</BuildDir>
+</PropertyGroup>
+
+2、项
+<ItemGroup>
+    <Compile Include = "file1.cs"/>
+    <Compile Include = "file2.cs"/>
+</ItemGroup>
+
+3、任务
+<Target Name="MakeBuildDirectory">
+    <MakeDir  Directories="$(BuildDir)" />
+</Target>
+
+4、目标
+<Target Name="Compile">
+    <Csc Sources="@(Compile)" />
+</Target>
+
+
+

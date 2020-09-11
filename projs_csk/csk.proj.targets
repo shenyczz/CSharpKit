@@ -1,0 +1,20 @@
+<!--
+csk.proj.targets
+-->
+<Project Label="csk.proj.targets">
+  
+  <!--生成前事件-->
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <!--<Exec Command="$(ProjectName)" />-->
+  </Target>
+
+  <!--生成后事件-->
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <!--<Exec Command="$(OutDir)" />-->
+    <!--<Exec Command="echo $(PATH)" />-->
+    <!--<Exec Command="notepad.exe" />-->
+  </Target>
+
+
+</Project>
+

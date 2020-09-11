@@ -1,0 +1,20 @@
+
+CSharpKit                   - depon: NAN
+CSharpKit.Core              - depon: CSharpKit
+CSharpKit.GeoApi            - depon: CSharpKit.Core
+
+CSharpKit.Data              - depon: CSharpKit.GeoApi
+CSharpKit.Data.Esri         - depon: CSharpKit.Data
+
+CSharpKit.IO                - depon: NAN
+CSharpKit.IO.Compression    - depon: CSharpKit.IO
+
+CSharpKit.Maths             - depon: CSharpKit.GeoApi
+
+CSharpKit.Native            - depon: CSharpKit.Core
+CSharpKit.Native.HDF        - depon: CSharpKit.Native
+
+CSharpKit.Platform          - depon: NAN
+
+
+

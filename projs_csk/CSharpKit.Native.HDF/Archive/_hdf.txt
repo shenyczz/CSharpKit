@@ -1,0 +1,20 @@
+﻿【HDF Package】
+Install-Package HDF.PInvoke -Version 1.10.5.2
+
+// https://portal.hdfgroup.org/display/HDF5/HDF5
+
+
+
+[Assets]三方库资源
+
+
+
+
+
+dotnet build projs_csk/CSharpKit.Native.HDF
+
+
+
+
+
+

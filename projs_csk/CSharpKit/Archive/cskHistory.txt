@@ -1,0 +1,65 @@
+﻿// This code is licensed under the MIT License (MIT).
+
+// THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
+// ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
+// IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
+// PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
+
+VS2002（Visual Studio .NET 2002）：2002年1月，微软公布.NET Framework 1.0正式版
+VS2003（Visual Studio .NET 2003）：2003年4月23日，微软公司推出.NET Framework 1.1和Visual 2003。
+VS2005（Visual Studio 2005）：2004年6月，框架.NET Framework 2.0
+VS2008（Visual Studio 2008）：2007年12月3日，框架.NET Framework 3.5
+VS2010（Visual Studio 2010）：2010年4月12日上市，框架.NET Framework 4.0
+VS2012（Visual Studio 2012）：2012年9月12日，框架.NET Framework 4.5
+VS2013（Visual Studio 2013）：2013年11月13日，框架.NET Framework 4.5.1 
+VS2015（Visual Studio 2015）：2015年7月20日，框架.NET Framework 4.6
+VS2017（Visual Studio 2017）：2017年3月7日，框架.NET Framework 4.7 & .NET Core 1.0
+VS2019（Visual Studio 2019）：2019年4月2日，，框架.NET Framework 4.8 & .NET Core 3.0
+
+[2008-07-11]CSharKit 0.9(VS2005)
+从 C++ KLibrary 移植代码：GeoApi、Provider等，
+主要侧重WinForms 自定义 GIS 开发。
+
+[2008-12-05]CSharKit 1.0
+完成80%代码移植；
+天气雷达产品数据代码移植；
+
+[2009-03-16]CSharKit 1.5(VS2008)
+基本完成 CSharpKit.GIS 开发（WFM）
+尝试 CSharpKit.GIS WPF 开发
+极轨卫星LD2、LD3数据开发，开始接触卫星遥感
+
+[2010-10-15]CSharKit 4.0(VS2010)
+开始开发WPF控件，添加下面三个项目
+CSharpKit.Windows.WPF
+CSharpKit.Windows.WPF.Controls
+
+[2010-10-16]CSharpKit 2010(VS2010)
+解决方案名称更改 CSharpKit 4.0 => CSharpKit 2010.
+仍然使用 .NETFramework 4.0
+
+[2015-05-19]CSharKit 4.5(VS2013)
+分离 CSharpKit 中的基础代码，形成 CSK；
+分离 CSharpKit 中的气象代码，形成 MTK；
+从C++移植天气雷达产品代码；
+开始开发使用天气雷达基数据；
+
+[2017-11-06]CSharKit 4.5(VS2017)
+LIBHDF
+LIBSVM
+MTK增加静止卫星代码
+
+[2018-03-15]CSharKit 4.5(VS2017)
+LIBNetCDF
+
+[2019-06-05]CSharKit 5.0(VS2019)
+开始支持 .NET Core
+
+[2019-06-15]CSharKit 2019(VS2019)
+支持 .NET Core 3.1
+
+[2019-08-20]
+CSK：DataInstance 增加 Dictionary<int, Image> ProductImageNew
+
+[2019-09-26]
+新增 气象神经网络 MNN：MeteoNeurnet

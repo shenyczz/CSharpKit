@@ -1,0 +1,32 @@
+﻿
+// This code is licensed under the MIT License (MIT).
+
+// THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
+// ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
+// IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
+// PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
+
+
+ISharpKit ISK
+ISharpToolkit STK
+meteoToollkit MTK
+visionToolkit VTK
+
+CSharpKit - ok
+CSharpKit.Data - ok
+CSharpKit.Data.Esri - ok
+CSharpKit.GeoApi - 
+
+CSharpKit 是一组功能套件，包括CSharpKit,CSharpKit.Core，CSharpKit.GeoApi,CSharpKit.Maths等
+提供一些常用的commpand,和一些通用的组件
+
+tool suite 
+consist of
+
+一组功能套件
+a set of tools
+
+CSharpKit is a set of tools suites,for example CSharpKit.Core, CSharpKit.GeoApi, CSharpKit.Maths etc.
+CSharpKit consists of CSharpKit.Core, CSharpKit.GeoApi, CSharpKit.Maths etc.
+
+[assembly: log4net.Config.XmlConfigurator(ConfigFile = "log4net.config", ConfigFileExtension = "config", Watch = true)]

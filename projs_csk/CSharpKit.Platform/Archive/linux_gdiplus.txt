@@ -1,0 +1,8 @@
+
+系统使用 System.Drawing.Common.dll时，在linux下需要 libgdiplus,
+
+ubantu 使用 apt install libgdiplus 可安装
+
+
+
+

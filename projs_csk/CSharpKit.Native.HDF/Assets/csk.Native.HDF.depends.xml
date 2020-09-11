@@ -1,0 +1,77 @@
+<!--
+  依赖导入文件，打包 props，targets 文件到 nuget package,
+  安装包时使用它们提供依赖库
+-->
+<Project Label="csk.Native.HDF.depends">
+
+  <PropertyGroup>
+    <HDF5LibraryName>HDF5</HDF5LibraryName>
+    <HDF5LibraryVersion>1.10.5.2</HDF5LibraryVersion>
+    <HDF5LibraryPath_x86>$(HDF5LibraryName)\$(HDF5LibraryVersion)\x86\</HDF5LibraryPath_x86>
+    <HDF5LibraryPath_x64>$(HDF5LibraryName)\$(HDF5LibraryVersion)\x64\</HDF5LibraryPath_x64>
+  </PropertyGroup>
+
+  <!-- 测试 -->
+  <Target Name="MSG_Display" AfterTargets="PreBuild">
+    <Message Importance="High" Text="csk.Native.HDF.depends" />
+    <Message Importance="High" Text="$(SolutionDir)" />
+    <Message Importance="High" Text="$(ThirdPartyDir)" />
+    <!-- Exists('stringA') -->
+  </Target>
+
+
+  <ItemGroup>
+    <!--build .props-->
+    <None Include="Assets\CSharpKit.Native.HDF.props">
+      <Pack>True</Pack>
+      <PackagePath>build</PackagePath>
+    </None>
+    <!--build .targets -->
+    <None Include="Assets\CSharpKit.Native.HDF.targets">
+      <Pack>True</Pack>
+      <PackagePath>build</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <!--HDF5 x86 -->
+  <ItemGroup Label="x86">
+    <None Include="$(ThirdPartyDir)$(HDF5LibraryPath_x86)hdf5.dll" Pack="True">
+      <Link>Assets\build\$(HDF5LibraryPath_x86)hdf5.dll</Link>
+      <PackagePath>build\$(HDF5LibraryPath_x86)</PackagePath>
+    </None>
+    <None Include="$(ThirdPartyDir)$(HDF5LibraryPath_x86)hdf5_hl.dll" Pack="True">
+      <Link>Assets\build\$(HDF5LibraryPath_x86)hdf5_hl.dll</Link>
+      <PackagePath>build\$(HDF5LibraryPath_x86)</PackagePath>
+    </None>
+    <None Include="$(ThirdPartyDir)$(HDF5LibraryPath_x86)szip.dll" Pack="True">
+      <Link>Assets\build\$(HDF5LibraryPath_x86)szip.dll</Link>
+      <PackagePath>build\$(HDF5LibraryPath_x86)</PackagePath>
+    </None>
+    <None Include="$(ThirdPartyDir)$(HDF5LibraryPath_x86)zlib.dll" Pack="True">
+      <Link>Assets\build\$(HDF5LibraryPath_x86)zlib.dll</Link>
+      <PackagePath>build\$(HDF5LibraryPath_x86)</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <!--HDF5 x64 -->
+  <ItemGroup Label="x64">
+    <None Include="$(ThirdPartyDir)$(HDF5LibraryPath_x64)hdf5.dll" Pack="True">
+      <Link>Assets\build\$(HDF5LibraryPath_x64)hdf5.dll</Link>
+      <PackagePath>build\$(HDF5LibraryPath_x64)</PackagePath>
+    </None>
+    <None Include="$(ThirdPartyDir)$(HDF5LibraryPath_x64)hdf5_hl.dll" Pack="True">
+      <Link>Assets\build\$(HDF5LibraryPath_x64)hdf5_hl.dll</Link>
+      <PackagePath>build\$(HDF5LibraryPath_x64)</PackagePath>
+    </None>
+    <None Include="$(ThirdPartyDir)$(HDF5LibraryPath_x64)szip.dll" Pack="True">
+      <Link>Assets\build\$(HDF5LibraryPath_x64)szip.dll</Link>
+      <PackagePath>build\$(HDF5LibraryPath_x64)</PackagePath>
+    </None>
+    <None Include="$(ThirdPartyDir)$(HDF5LibraryPath_x64)zlib.dll" Pack="True">
+      <Link>Assets\build\$(HDF5LibraryPath_x64)zlib.dll</Link>
+      <PackagePath>build\$(HDF5LibraryPath_x64)</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
+
