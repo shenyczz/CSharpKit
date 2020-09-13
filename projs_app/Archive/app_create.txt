@@ -1,0 +1,13 @@
+
+2、创建项目
+dotnet new console -o projs_app\tapp
+dotnet new classlib -o projs_app\tlibrary
+
+
+
+
+3、添加项目
+dotnet sln app.sln add --in-root projs_app\tapp
+dotnet sln app.sln add --in-root projs_app\tlibrary
+
+

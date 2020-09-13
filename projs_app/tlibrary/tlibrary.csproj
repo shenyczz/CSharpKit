@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\projs_csk\CSharpKit.Platform\CSharpKit.Platform.csproj" />
+    <!-- <ProjectReference Include="..\..\projs_mtk\meteoToolkit.Data.Radar.Provider\meteoToolkit.Data.Radar.Provider.csproj" /> -->
+  </ItemGroup>
+
+</Project>

@@ -75,26 +75,17 @@ dotnet build projs_csk/CSharpKit.Native.HDF
 
 
 
+6.1、创建测试
+dotnet new mstest -o projs_uts\uts.csk
+dotnet new mstest -o projs_uts\uts.csk.HDF
 
-6、三方库应用
-
-
-
-7、测试
-dotnet new mstest -o projs_csk\uts.csk
-//dotnet sln csk.sln add --in-root projs_csk\uts.csk
-
-7.2 添加参考
-dotnet add "projs_csk\uts.csk\uts.csk.csproj" reference "projs_csk\CSharpKit"
+6.2、添加测试
+dotnet sln csk.sln add --in-root projs_uts\uts.csk
+dotnet sln csk.sln add --in-root projs_uts\uts.csk.HDF
 
 7.3 运行测试
 dotnet test projs_csk\uts.csk\uts.csk.csproj"
 
-
-8、统一 frame 和 pack
-使用
-csk.proj.props
-Directory.Build.props
 
 
 

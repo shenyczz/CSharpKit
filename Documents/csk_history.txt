@@ -2,4 +2,9 @@
 csk version 3.1.1
 从 visual studio 迁移到 visual studio code
 
+[2020-09-09]
+csk version 3.1.2
+
+[2020-09-10]
+csk version 3.1.2-a0
 

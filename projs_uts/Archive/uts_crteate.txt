@@ -1,0 +1,16 @@
+
+6.1、创建测试
+dotnet new mstest -o projs_uts\uts.csk
+dotnet new mstest -o projs_uts\uts.csk.HDF
+
+6.2、添加测试
+dotnet sln uts.sln add --in-root projs_uts\uts.csk
+dotnet sln uts.sln add --in-root projs_uts\uts.csk.HDF
+
+6.3 运行测试
+dotnet test projs_uts\uts.csk"
+
+
+
+
+

@@ -25,7 +25,7 @@ namespace CSharpKit.Platform.Windows
     public sealed partial class Win32Messages
     {
         private Win32Messages() { }
-        String _str = "";
+        // String _str = "";
     }
 
 

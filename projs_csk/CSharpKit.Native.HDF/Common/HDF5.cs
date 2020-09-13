@@ -110,7 +110,7 @@ namespace CSharpKit.Native.HDF
                 ok = false;
                 result = default;
 #if DEBUG
-                        Debug.WriteLine(ex);
+                Debug.WriteLine(ex);
 #endif
             }
 
@@ -216,7 +216,7 @@ namespace CSharpKit.Native.HDF
                 int rank = H5S.get_simple_extent_ndims(dspace);
 
 #if DEBUG
-                        Debug.Assert(rank > 0);
+                Debug.Assert(rank > 0);
 #endif
 
                 if (rank > 0)
@@ -266,7 +266,7 @@ namespace CSharpKit.Native.HDF
                 int rank = H5S.get_simple_extent_ndims(dspace);
 
 #if DEBUG
-                        Debug.Assert(rank > 0);
+                Debug.Assert(rank > 0);
 #endif
 
                 if (rank > 0)
@@ -320,7 +320,7 @@ namespace CSharpKit.Native.HDF
                 int rank = H5S.get_simple_extent_ndims(dspace);
 
 #if DEBUG
-                        Debug.Assert(rank > 0);
+                Debug.Assert(rank > 0);
 #endif
 
                 if (rank > 0)
@@ -373,7 +373,7 @@ namespace CSharpKit.Native.HDF
                 int rank = H5S.get_simple_extent_ndims(dspace);
 
 #if DEBUG
-                        Debug.Assert(rank > 0);
+                Debug.Assert(rank > 0);
 #endif
 
                 if (rank > 0)
@@ -397,7 +397,7 @@ namespace CSharpKit.Native.HDF
             catch (Exception ex)
             {
 #if DEBUG
-                        Debug.WriteLine(ex);
+                Debug.WriteLine(ex);
 #endif
             }
 
@@ -428,7 +428,7 @@ namespace CSharpKit.Native.HDF
                 int rank = H5S.get_simple_extent_ndims(dspace);
 
 #if DEBUG
-                        Debug.Assert(rank > 0);
+                Debug.Assert(rank > 0);
 #endif
 
                 if (rank > 0)
@@ -480,7 +480,7 @@ namespace CSharpKit.Native.HDF
                 int rank = H5S.get_simple_extent_ndims(dspace);
 
 #if DEBUG
-                        Debug.Assert(rank > 0);
+                Debug.Assert(rank > 0);
 #endif
 
                 if (rank > 0)
@@ -710,8 +710,8 @@ namespace CSharpKit.Native.HDF
             if (rank > 0)
             {
 #if DEBUG
-                        Debug.WriteLine(string.Format("\tRank =  {0}", rank));
-                        Debug.Write(string.Format("\tDimension sizes: "));
+                Debug.WriteLine(string.Format("\tRank =  {0}", rank));
+                Debug.Write(string.Format("\tDimension sizes: "));
 #endif
 
                 for (int i = 0; i < rank; i++)
@@ -726,7 +726,7 @@ namespace CSharpKit.Native.HDF
                 }
 
 #if DEBUG
-                        Debug.Assert(true);
+                Debug.Assert(true);
 #endif
             }
 
@@ -788,7 +788,9 @@ namespace CSharpKit.Native.HDF
 
 
 
-        //@@@
+
+
+        //}}@@@
     }
 
 

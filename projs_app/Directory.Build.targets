@@ -1,0 +1,9 @@
+<!--
+  uts.Directory.Build.targets
+-->
+<Project Label="uts.Directory.Build.targets">
+
+  <PropertyGroup>
+  </PropertyGroup>
+
+</Project>
