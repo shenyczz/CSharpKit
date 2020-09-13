@@ -7,4 +7,5 @@ csk version 3.1.2
 
 [2020-09-10]
 csk version 3.1.2-a0
+will add CSharpKit.Native.BLAS
 
